@@ -1,0 +1,258 @@
+digraph azure_lz_microservices_aks {
+	graph [bb="0,0,1129,799",
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=15,
+		label=azure_lz_microservices_aks,
+		lheight=0.24,
+		lp="564.5,12.5",
+		lwidth=2.85,
+		nodesep=0.60,
+		pad=2.0,
+		rankdir=LR,
+		ranksep=0.75,
+		splines=ortho
+	];
+	node [fixedsize=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		height=1.4,
+		imagescale=true,
+		label="\N",
+		labelloc=b,
+		shape=box,
+		style=rounded,
+		width=1.4
+	];
+	edge [color="#7B8894"];
+	subgraph "cluster_Identity Subscription" {
+		graph [bb="2,123,141,298",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Identity Subscription",
+			labeljust=l,
+			lheight=0.18,
+			lp="71.5,287.5",
+			lwidth=1.71,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"48065bca5fce45fc86f24223da57a8c4"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/identity/\
+active-directory.png",
+			label="Azure AD",
+			pos="71.5,200",
+			shape=none,
+			width=1.4028];
+	}
+	subgraph "cluster_Connectivity Subscription" {
+		graph [bb="13,396,616,608",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Connectivity Subscription",
+			labeljust=l,
+			lheight=0.18,
+			lp="96.5,597.5",
+			lwidth=2.10,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_Hub VNet" {
+			graph [bb="181,404,608,579",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="Hub VNet",
+				labeljust=l,
+				lheight=0.18,
+				lp="218,568.5",
+				lwidth=0.81,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"6bad27250238465a94fcae5442ecbc83"	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+virtual-networks.png",
+				label="Hub VNet",
+				pos="549.5,481",
+				shape=none,
+				width=1.4028];
+			ed0b7f34508a4d97a53fb40f329499ec	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+firewall.png",
+				label=Firewall,
+				pos="239.5,481",
+				shape=none,
+				width=1.4028];
+			"437bec9251344ce8b08f7106f3d54bc6"	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+application-gateway.png",
+				label="App GW",
+				pos="394.5,481",
+				shape=none,
+				width=1.4028];
+			ed0b7f34508a4d97a53fb40f329499ec -> "437bec9251344ce8b08f7106f3d54bc6"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,343.9,481 290.25,481 290.25,481 333.9,481 333.9,481"];
+			"437bec9251344ce8b08f7106f3d54bc6" -> "6bad27250238465a94fcae5442ecbc83"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,498.9,481 445.25,481 445.25,481 488.9,481 488.9,481"];
+		}
+		"5550c8d3b33d454292337a7c15097e76"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+front-doors.png",
+			label="Front Door",
+			pos="71.5,481",
+			shape=none,
+			width=1.4028];
+		"5550c8d3b33d454292337a7c15097e76" -> ed0b7f34508a4d97a53fb40f329499ec	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,188.81,481 122.36,481 122.36,481 178.81,481 178.81,481"];
+	}
+	subgraph "cluster_Management Subscription" {
+		graph [bb="956,33,1129,208",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Management Subscription",
+			labeljust=l,
+			lheight=0.18,
+			lp="1042.5,197.5",
+			lwidth=2.18,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"9b63e8c147444604ab4879954bb6a728"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/monitor/\
+log-analytics-workspaces.png",
+			label="Log Analytics",
+			pos="1042.5,110",
+			shape=none,
+			width=1.4028];
+	}
+	subgraph "cluster_Security Subscription" {
+		graph [bb="0,616,143,791",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Security Subscription",
+			labeljust=l,
+			lheight=0.18,
+			lp="71.5,780.5",
+			lwidth=1.76,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		e387345c506a4b7788da526d6d2dcfea	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/security/\
+defender.png",
+			label="Azure Defender",
+			pos="71.5,693",
+			shape=none,
+			width=1.4028];
+	}
+	subgraph "cluster_Application Subscription" {
+		graph [bb="638,216,1109,608",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Application Subscription",
+			labeljust=l,
+			lheight=0.18,
+			lp="718,597.5",
+			lwidth=2.00,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_Spoke VNet" {
+			graph [bb="646,224,1101,579",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="Spoke VNet",
+				labeljust=l,
+				lheight=0.18,
+				lp="689,568.5",
+				lwidth=0.97,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"614e4c3af4c54c7c8adc554984517371"	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+virtual-networks.png",
+				label="Spoke VNet",
+				pos="704.5,481",
+				shape=none,
+				width=1.4028];
+			"208dd97bb4c0498ea926d6a363734f04"	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/compute/\
+kubernetes-services.png",
+				label="AKS Cluster",
+				pos="859.5,301",
+				shape=none,
+				width=1.4028];
+			"614e4c3af4c54c7c8adc554984517371" -> "208dd97bb4c0498ea926d6a363734f04"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,860,369.56 755.42,481 800.77,481 860,481 860,481 860,481 860,379.56 860,379.56"];
+			"72849d234c26450492edb5d8c34d1c09"	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/database/\
+cosmos-db.png",
+				label="Cosmos DB",
+				pos="1042.5,301",
+				shape=none,
+				width=1.4028];
+			"208dd97bb4c0498ea926d6a363734f04" -> "72849d234c26450492edb5d8c34d1c09"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,991.8,301 910.48,301 910.48,301 981.8,301 981.8,301"];
+			"573cfdd562984d33bc1e3f1e20aea1c9"	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/containers/\
+container-registries.png",
+				label=ACR,
+				pos="704.5,301",
+				shape=none,
+				width=1.4028];
+			"573cfdd562984d33bc1e3f1e20aea1c9" -> "208dd97bb4c0498ea926d6a363734f04"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,808.9,301 755.25,301 755.25,301 798.9,301 798.9,301"];
+		}
+	}
+	"6bad27250238465a94fcae5442ecbc83" -> "614e4c3af4c54c7c8adc554984517371"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,653.9,481 600.25,481 600.25,481 643.9,481 643.9,481"];
+	"208dd97bb4c0498ea926d6a363734f04" -> "9b63e8c147444604ab4879954bb6a728"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,991.66,155 860,232.28 860,194.41 860,155 860,155 860,155 981.66,155 981.66,155"];
+}

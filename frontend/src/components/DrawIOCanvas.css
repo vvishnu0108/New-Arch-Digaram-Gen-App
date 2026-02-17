@@ -1,0 +1,80 @@
+.drawio-canvas {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.drawio-canvas.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.drawio-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.drawio-title {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.drawio-actions {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.drawio-frame-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.drawio-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    z-index: 1;
+}
+
+.drawio-placeholder-content {
+    text-align: center;
+    padding: var(--spacing-2xl);
+}
+
+.drawio-placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.drawio-placeholder h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.drawio-placeholder p {
+    color: var(--text-secondary);
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.drawio-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #1a1a2e;
+}

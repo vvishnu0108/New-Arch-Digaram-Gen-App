@@ -1,0 +1,153 @@
+digraph appservice_privendpoint {
+	graph [bb="0,0,443,484",
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=15,
+		label=appservice_privendpoint,
+		lheight=0.24,
+		lp="221.5,12.5",
+		lwidth=2.60,
+		nodesep=0.60,
+		pad=2.0,
+		rankdir=LR,
+		ranksep=0.75,
+		splines=ortho
+	];
+	node [fixedsize=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		height=1.4,
+		imagescale=true,
+		label="\N",
+		labelloc=b,
+		shape=box,
+		style=rounded,
+		width=1.4
+	];
+	edge [color="#7B8894"];
+	subgraph "cluster_Platform Services" {
+		graph [bb="163,301,435,476",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Platform Services",
+			labeljust=l,
+			lheight=0.18,
+			lp="224,465.5",
+			lwidth=1.47,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"89bbe92acf4e441c97d66ae4800595a3"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/identity/\
+active-directory.png",
+			label="Azure AD",
+			pos="221.5,378",
+			shape=none,
+			width=1.4028];
+		b817252e606b4bc287b846a96b1c5fa0	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/security/\
+key-vaults.png",
+			label="Key Vault",
+			pos="376.5,378",
+			shape=none,
+			width=1.4028];
+		"89bbe92acf4e441c97d66ae4800595a3" -> b817252e606b4bc287b846a96b1c5fa0	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,325.9,378 272.25,378 272.25,378 315.9,378 315.9,378"];
+	}
+	subgraph "cluster_App Service" {
+		graph [bb="8,167,125,342",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="App Service",
+			labeljust=l,
+			lheight=0.18,
+			lp="52,331.5",
+			lwidth=1.00,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"60687648a24d444bb430d183c90ec89d"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/compute/\
+app-services.png",
+			label=MyWebApp,
+			pos="66.5,244",
+			shape=none,
+			width=1.4028];
+	}
+	subgraph "cluster_Storage Account" {
+		graph [bb="318,33,435,208",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Storage Account",
+			labeljust=l,
+			lheight=0.18,
+			lp="376,197.5",
+			lwidth=1.39,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"9b9242054fdc4b418836e41c0e8e4438"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/storage/\
+blob-storage.png",
+			label=MyStorage,
+			pos="376.5,110",
+			shape=none,
+			width=1.4028];
+	}
+	subgraph "cluster_Private Network" {
+		graph [bb="163,33,280,208",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Private Network",
+			labeljust=l,
+			lheight=0.18,
+			lp="219,197.5",
+			lwidth=1.33,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"72628d5fe7774940930af56812ee9fc5"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/generic/network/\
+subnet.png",
+			label="VNet Subnet",
+			pos="221.5,110",
+			shape=none,
+			width=1.4028];
+	}
+	"60687648a24d444bb430d183c90ec89d" -> "89bbe92acf4e441c97d66ae4800595a3"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,205,309.34 117.29,276.75 156.81,276.75 205,276.75 205,276.75 205,276.75 205,299.34 205,299.34"];
+	"60687648a24d444bb430d183c90ec89d" -> b817252e606b4bc287b846a96b1c5fa0	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,377,309.43 117.08,244 205.06,244 377,244 377,244 377,244 377,299.43 377,299.43"];
+	"60687648a24d444bb430d183c90ec89d" -> "72628d5fe7774940930af56812ee9fc5"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,239,178.66 117.32,211.25 168.21,211.25 239,211.25 239,211.25 239,211.25 239,188.66 239,188.66"];
+	"72628d5fe7774940930af56812ee9fc5" -> "9b9242054fdc4b418836e41c0e8e4438"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,325.9,110 272.25,110 272.25,110 315.9,110 315.9,110"];
+}

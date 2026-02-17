@@ -1,0 +1,242 @@
+/* ===================================
+   App Layout Styles
+   =================================== */
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+/* Header */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 0 var(--spacing-md);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.app-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.logo-icon {
+    color: var(--color-primary);
+}
+
+.app-logo h1 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+}
+
+.session-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+}
+
+.session-label {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+.session-id {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-primary-light);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+/* Main Layout */
+.app-main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    transition: width var(--transition-normal), margin var(--transition-normal);
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 0;
+    margin-left: 0;
+}
+
+/* Canvas Area */
+.canvas-area {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-primary);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+/* Right Panel */
+.right-panel {
+    width: var(--panel-width);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-secondary);
+    transition: width var(--transition-normal);
+    overflow: hidden;
+}
+
+.right-panel.collapsed {
+    width: 0;
+}
+
+.panel-tabs {
+    display: flex;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.panel-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.panel-tab:hover {
+    color: var(--text-primary);
+    background: var(--bg-hover);
+}
+
+.panel-tab.active {
+    color: var(--color-primary-light);
+    background: var(--bg-secondary);
+}
+
+.panel-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-primary);
+}
+
+.panel-content-area {
+    flex: 1;
+    overflow: hidden;
+}
+
+.panel-content-area>* {
+    height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    :root {
+        --sidebar-width: 320px;
+        --panel-width: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .app-logo h1 {
+        display: none;
+    }
+
+    .header-center {
+        display: none;
+    }
+
+    :root {
+        --sidebar-width: 300px;
+        --panel-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: var(--header-height);
+        bottom: 0;
+        z-index: 50;
+        background: var(--bg-secondary);
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+
+    .right-panel {
+        position: fixed;
+        right: 0;
+        top: var(--header-height);
+        bottom: 0;
+        z-index: 50;
+    }
+
+    .right-panel.collapsed {
+        transform: translateX(100%);
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn var(--transition-normal) ease-out;
+}

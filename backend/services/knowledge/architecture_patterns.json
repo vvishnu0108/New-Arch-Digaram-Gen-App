@@ -1,0 +1,466 @@
+{
+    "data_pipeline": {
+        "name": "Data Pipeline Architecture",
+        "description": "Pattern for ingesting, processing, and storing data at scale",
+        "layers": [
+            {
+                "name": "Ingestion Layer",
+                "purpose": "Receive data from various sources",
+                "components": {
+                    "gcp": [
+                        "Pub/Sub",
+                        "Cloud Storage",
+                        "Cloud Functions"
+                    ],
+                    "aws": [
+                        "Kinesis",
+                        "S3",
+                        "Lambda",
+                        "SQS"
+                    ],
+                    "azure": [
+                        "Event Hubs",
+                        "Blob Storage",
+                        "Functions"
+                    ],
+                    "onprem": [
+                        "Kafka",
+                        "RabbitMQ",
+                        "NFS Storage"
+                    ]
+                }
+            },
+            {
+                "name": "Processing Layer",
+                "purpose": "Transform and process data",
+                "components": {
+                    "gcp": [
+                        "Dataflow",
+                        "Dataproc",
+                        "Cloud Functions"
+                    ],
+                    "aws": [
+                        "EMR",
+                        "Glue",
+                        "Lambda",
+                        "Step Functions"
+                    ],
+                    "azure": [
+                        "Data Factory",
+                        "Databricks",
+                        "Stream Analytics"
+                    ],
+                    "onprem": [
+                        "Spark",
+                        "Flink",
+                        "Airflow"
+                    ]
+                }
+            },
+            {
+                "name": "Storage Layer",
+                "purpose": "Persist processed data",
+                "components": {
+                    "gcp": [
+                        "BigQuery",
+                        "Cloud Storage",
+                        "Bigtable"
+                    ],
+                    "aws": [
+                        "Redshift",
+                        "S3",
+                        "DynamoDB"
+                    ],
+                    "azure": [
+                        "Synapse",
+                        "Blob Storage",
+                        "Cosmos DB"
+                    ],
+                    "onprem": [
+                        "PostgreSQL",
+                        "Hadoop HDFS",
+                        "Elasticsearch"
+                    ]
+                }
+            },
+            {
+                "name": "Orchestration Layer",
+                "purpose": "Coordinate and schedule workflows",
+                "components": {
+                    "gcp": [
+                        "Cloud Composer",
+                        "Cloud Scheduler"
+                    ],
+                    "aws": [
+                        "Step Functions",
+                        "MWAA",
+                        "EventBridge"
+                    ],
+                    "azure": [
+                        "Logic Apps",
+                        "Data Factory"
+                    ],
+                    "onprem": [
+                        "Airflow",
+                        "Prefect",
+                        "Dagster"
+                    ]
+                }
+            },
+            {
+                "name": "Monitoring Layer",
+                "purpose": "Observe and alert on pipeline health",
+                "components": {
+                    "gcp": [
+                        "Cloud Monitoring",
+                        "Cloud Logging"
+                    ],
+                    "aws": [
+                        "CloudWatch",
+                        "X-Ray"
+                    ],
+                    "azure": [
+                        "Azure Monitor",
+                        "Log Analytics"
+                    ],
+                    "onprem": [
+                        "Prometheus",
+                        "Grafana",
+                        "ELK Stack"
+                    ]
+                }
+            }
+        ],
+        "best_practices": [
+            "Use managed services to reduce operational overhead",
+            "Implement idempotent processing for fault tolerance",
+            "Use dead-letter queues for failed messages",
+            "Partition data for parallel processing",
+            "Implement data quality checks at each stage"
+        ]
+    },
+    "microservices": {
+        "name": "Microservices Architecture",
+        "description": "Pattern for building distributed applications as a collection of loosely coupled services",
+        "layers": [
+            {
+                "name": "API Gateway Layer",
+                "purpose": "Single entry point for all client requests",
+                "components": {
+                    "gcp": [
+                        "API Gateway",
+                        "Cloud Endpoints",
+                        "Cloud Load Balancing"
+                    ],
+                    "aws": [
+                        "API Gateway",
+                        "ALB",
+                        "CloudFront"
+                    ],
+                    "azure": [
+                        "API Management",
+                        "Application Gateway",
+                        "Front Door"
+                    ],
+                    "onprem": [
+                        "Kong",
+                        "NGINX",
+                        "Traefik"
+                    ]
+                }
+            },
+            {
+                "name": "Service Mesh Layer",
+                "purpose": "Inter-service communication and observability",
+                "components": {
+                    "gcp": [
+                        "Anthos Service Mesh",
+                        "Traffic Director"
+                    ],
+                    "aws": [
+                        "App Mesh",
+                        "Cloud Map"
+                    ],
+                    "azure": [
+                        "Service Fabric Mesh"
+                    ],
+                    "onprem": [
+                        "Istio",
+                        "Linkerd",
+                        "Consul Connect"
+                    ]
+                }
+            },
+            {
+                "name": "Compute Layer",
+                "purpose": "Run microservices",
+                "components": {
+                    "gcp": [
+                        "GKE",
+                        "Cloud Run",
+                        "Compute Engine"
+                    ],
+                    "aws": [
+                        "EKS",
+                        "ECS",
+                        "Fargate",
+                        "Lambda"
+                    ],
+                    "azure": [
+                        "AKS",
+                        "Container Apps",
+                        "Functions"
+                    ],
+                    "onprem": [
+                        "Kubernetes",
+                        "Docker Swarm",
+                        "Nomad"
+                    ]
+                }
+            },
+            {
+                "name": "Data Layer",
+                "purpose": "Per-service data stores",
+                "components": {
+                    "gcp": [
+                        "Cloud SQL",
+                        "Firestore",
+                        "Memorystore"
+                    ],
+                    "aws": [
+                        "RDS",
+                        "DynamoDB",
+                        "ElastiCache"
+                    ],
+                    "azure": [
+                        "SQL Database",
+                        "Cosmos DB",
+                        "Redis Cache"
+                    ],
+                    "onprem": [
+                        "PostgreSQL",
+                        "MongoDB",
+                        "Redis"
+                    ]
+                }
+            },
+            {
+                "name": "Messaging Layer",
+                "purpose": "Async communication between services",
+                "components": {
+                    "gcp": [
+                        "Pub/Sub",
+                        "Cloud Tasks"
+                    ],
+                    "aws": [
+                        "SQS",
+                        "SNS",
+                        "EventBridge"
+                    ],
+                    "azure": [
+                        "Service Bus",
+                        "Event Grid"
+                    ],
+                    "onprem": [
+                        "Kafka",
+                        "RabbitMQ",
+                        "NATS"
+                    ]
+                }
+            }
+        ],
+        "best_practices": [
+            "Design for failure - implement circuit breakers",
+            "Use service discovery for dynamic scaling",
+            "Implement distributed tracing",
+            "Follow the database-per-service pattern",
+            "Use event-driven communication for loose coupling"
+        ]
+    },
+    "hybrid_cloud": {
+        "name": "Hybrid Cloud Architecture",
+        "description": "Pattern for connecting on-premises infrastructure with public cloud",
+        "layers": [
+            {
+                "name": "On-Premises Compute",
+                "purpose": "Local compute resources",
+                "components": {
+                    "lenovo": [
+                        "ThinkAgile MX Nodes",
+                        "ThinkAgile HX Nodes",
+                        "ThinkAgile VX Nodes"
+                    ],
+                    "generic": [
+                        "VMware vSphere",
+                        "Hyper-V",
+                        "Nutanix AHV"
+                    ]
+                }
+            },
+            {
+                "name": "Hybrid Connectivity",
+                "purpose": "Secure connection between on-prem and cloud",
+                "components": {
+                    "gcp": [
+                        "Cloud Interconnect",
+                        "Cloud VPN",
+                        "Anthos"
+                    ],
+                    "aws": [
+                        "Direct Connect",
+                        "Site-to-Site VPN",
+                        "Outposts"
+                    ],
+                    "azure": [
+                        "ExpressRoute",
+                        "VPN Gateway",
+                        "Azure Arc"
+                    ]
+                }
+            },
+            {
+                "name": "Hybrid Management",
+                "purpose": "Unified management across environments",
+                "components": {
+                    "gcp": [
+                        "Anthos",
+                        "GKE on-prem"
+                    ],
+                    "aws": [
+                        "Systems Manager",
+                        "Control Tower"
+                    ],
+                    "azure": [
+                        "Azure Arc",
+                        "Azure Stack HCI"
+                    ],
+                    "lenovo": [
+                        "XClarity Administrator"
+                    ]
+                }
+            },
+            {
+                "name": "Identity Layer",
+                "purpose": "Unified identity and access management",
+                "components": {
+                    "gcp": [
+                        "Cloud Identity",
+                        "Workload Identity"
+                    ],
+                    "aws": [
+                        "IAM",
+                        "SSO",
+                        "Directory Service"
+                    ],
+                    "azure": [
+                        "Azure AD",
+                        "Azure AD Connect"
+                    ],
+                    "onprem": [
+                        "Active Directory",
+                        "LDAP",
+                        "Keycloak"
+                    ]
+                }
+            }
+        ],
+        "best_practices": [
+            "Use consistent identity management across environments",
+            "Implement network segmentation and zero-trust",
+            "Use infrastructure as code for both environments",
+            "Plan for data gravity - keep data close to compute",
+            "Implement unified monitoring and logging"
+        ]
+    },
+    "three_tier": {
+        "name": "Three-Tier Architecture",
+        "description": "Classic pattern separating presentation, application, and data layers",
+        "layers": [
+            {
+                "name": "Presentation Layer",
+                "purpose": "Handle user interface and client requests",
+                "components": {
+                    "gcp": [
+                        "Cloud Load Balancing",
+                        "Cloud CDN",
+                        "Cloud Armor"
+                    ],
+                    "aws": [
+                        "ALB",
+                        "CloudFront",
+                        "WAF"
+                    ],
+                    "azure": [
+                        "Application Gateway",
+                        "CDN",
+                        "Front Door"
+                    ],
+                    "onprem": [
+                        "NGINX",
+                        "HAProxy",
+                        "F5"
+                    ]
+                }
+            },
+            {
+                "name": "Application Layer",
+                "purpose": "Business logic and API processing",
+                "components": {
+                    "gcp": [
+                        "Compute Engine",
+                        "GKE",
+                        "Cloud Run"
+                    ],
+                    "aws": [
+                        "EC2",
+                        "ECS",
+                        "EKS"
+                    ],
+                    "azure": [
+                        "Virtual Machines",
+                        "AKS",
+                        "App Service"
+                    ],
+                    "onprem": [
+                        "VMs",
+                        "Kubernetes",
+                        "Docker"
+                    ]
+                }
+            },
+            {
+                "name": "Data Layer",
+                "purpose": "Data persistence and caching",
+                "components": {
+                    "gcp": [
+                        "Cloud SQL",
+                        "Cloud Spanner",
+                        "Memorystore"
+                    ],
+                    "aws": [
+                        "RDS",
+                        "Aurora",
+                        "ElastiCache"
+                    ],
+                    "azure": [
+                        "SQL Database",
+                        "Cosmos DB",
+                        "Redis Cache"
+                    ],
+                    "onprem": [
+                        "PostgreSQL",
+                        "MySQL",
+                        "Redis"
+                    ]
+                }
+            }
+        ],
+        "best_practices": [
+            "Use load balancers for high availability",
+            "Implement auto-scaling at each layer",
+            "Use read replicas for database scaling",
+            "Implement caching to reduce database load",
+            "Design for horizontal scaling"
+        ]
+    }
+}

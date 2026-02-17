@@ -1,0 +1,215 @@
+{
+    "MX": {
+        "name": "ThinkAgile MX Series",
+        "platform": "Microsoft Azure Stack HCI",
+        "description": "Hyperconverged infrastructure certified for Azure Stack HCI, ideal for Windows-centric workloads and Azure hybrid scenarios.",
+        "best_for": [
+            "Windows-centric workloads",
+            "Azure hybrid scenarios",
+            "Hyper-V virtualization",
+            "Virtual Desktop Infrastructure (VDI)"
+        ],
+        "use_cases": [
+            "SQL Server",
+            "Virtual Desktop Infrastructure (VDI)",
+            "Azure Arc integration",
+            "Windows Server workloads",
+            "Branch office/edge deployments"
+        ],
+        "hypervisor": "Hyper-V / Azure Stack HCI",
+        "management": [
+            "Windows Admin Center",
+            "Azure Arc",
+            "Azure Portal",
+            "XClarity Administrator"
+        ],
+        "storage": "Storage Spaces Direct (S2D)",
+        "diagram_representation": {
+            "node_icon": "diagrams.onprem.compute.Server",
+            "node_label": "ThinkAgile MX Node",
+            "min_nodes": 2,
+            "recommended_nodes": 4,
+            "related_components": [
+                {
+                    "icon": "diagrams.azure.compute.VMWindows",
+                    "label": "Windows VMs"
+                },
+                {
+                    "icon": "diagrams.azure.integration.APIManagement",
+                    "label": "Azure Arc"
+                },
+                {
+                    "icon": "diagrams.onprem.network.Consul",
+                    "label": "ToR Switch"
+                },
+                {
+                    "icon": "diagrams.onprem.compute.Server",
+                    "label": "XClarity Administrator"
+                }
+            ]
+        }
+    },
+    "HX": {
+        "name": "ThinkAgile HX Series",
+        "platform": "Nutanix",
+        "description": "Hyperconverged infrastructure powered by Nutanix, offering multi-hypervisor support and simplified management.",
+        "best_for": [
+            "Multi-hypervisor environments",
+            "AHV/ESXi/Hyper-V workloads",
+            "Enterprise applications",
+            "Private cloud deployments"
+        ],
+        "use_cases": [
+            "Enterprise databases",
+            "ERP systems (SAP, Oracle)",
+            "Private cloud",
+            "Disaster recovery",
+            "DevTest environments"
+        ],
+        "hypervisor": "Nutanix AHV / VMware ESXi / Hyper-V",
+        "management": [
+            "Nutanix Prism Central",
+            "Nutanix Prism Element",
+            "XClarity Administrator"
+        ],
+        "storage": "Nutanix Distributed Storage Fabric",
+        "diagram_representation": {
+            "node_icon": "diagrams.onprem.compute.Server",
+            "node_label": "ThinkAgile HX Node",
+            "min_nodes": 3,
+            "recommended_nodes": 4,
+            "related_components": [
+                {
+                    "icon": "diagrams.onprem.compute.Server",
+                    "label": "Nutanix Prism"
+                },
+                {
+                    "icon": "diagrams.onprem.database.PostgreSQL",
+                    "label": "Enterprise DB"
+                },
+                {
+                    "icon": "diagrams.onprem.network.Consul",
+                    "label": "ToR Switch"
+                },
+                {
+                    "icon": "diagrams.onprem.compute.Server",
+                    "label": "XClarity Administrator"
+                }
+            ]
+        }
+    },
+    "VX": {
+        "name": "ThinkAgile VX Series",
+        "platform": "VMware vSAN",
+        "description": "Hyperconverged infrastructure certified for VMware vSAN, optimized for VMware-centric environments.",
+        "best_for": [
+            "VMware-centric environments",
+            "vSphere workloads",
+            "Software-defined storage",
+            "VMware Cloud Foundation (VCF)"
+        ],
+        "use_cases": [
+            "VM consolidation",
+            "Software-defined data center",
+            "VCF deployments",
+            "Kubernetes (Tanzu)",
+            "Mission-critical applications"
+        ],
+        "hypervisor": "VMware ESXi",
+        "management": [
+            "VMware vCenter Server",
+            "vSAN Manager",
+            "XClarity Administrator"
+        ],
+        "storage": "VMware vSAN",
+        "diagram_representation": {
+            "node_icon": "diagrams.onprem.compute.Server",
+            "node_label": "ThinkAgile VX Node",
+            "min_nodes": 3,
+            "recommended_nodes": 4,
+            "related_components": [
+                {
+                    "icon": "diagrams.onprem.compute.Server",
+                    "label": "vCenter Server"
+                },
+                {
+                    "icon": "diagrams.k8s.compute.Pod",
+                    "label": "Tanzu Kubernetes"
+                },
+                {
+                    "icon": "diagrams.onprem.network.Consul",
+                    "label": "ToR Switch"
+                },
+                {
+                    "icon": "diagrams.onprem.compute.Server",
+                    "label": "XClarity Administrator"
+                }
+            ]
+        }
+    },
+    "networking": {
+        "switches": {
+            "tor": {
+                "name": "Top-of-Rack Switches",
+                "description": "Lenovo ThinkSystem networking switches for north-south traffic",
+                "models": [
+                    "NE1032",
+                    "NE2572",
+                    "NE10032"
+                ],
+                "diagram_icon": "diagrams.onprem.network.Consul",
+                "diagram_label": "Lenovo ToR Switch"
+            },
+            "spine": {
+                "name": "Spine Switches",
+                "description": "High-capacity switches for east-west traffic in leaf-spine architecture",
+                "diagram_icon": "diagrams.onprem.network.Consul",
+                "diagram_label": "Lenovo Spine Switch"
+            }
+        },
+        "management": {
+            "name": "XClarity Controller",
+            "description": "Embedded management controller for Lenovo servers",
+            "diagram_icon": "diagrams.onprem.compute.Server",
+            "diagram_label": "XClarity Controller"
+        }
+    },
+    "storage": {
+        "dm_series": {
+            "name": "ThinkSystem DM Series",
+            "description": "Unified storage arrays for block and file workloads",
+            "use_cases": [
+                "Backup target",
+                "Archive",
+                "Secondary storage"
+            ],
+            "diagram_icon": "diagrams.onprem.storage.Ceph",
+            "diagram_label": "ThinkSystem DM Storage"
+        },
+        "de_series": {
+            "name": "ThinkSystem DE Series",
+            "description": "High-performance block storage for demanding workloads",
+            "use_cases": [
+                "Primary storage",
+                "Databases",
+                "High IOPS"
+            ],
+            "diagram_icon": "diagrams.onprem.storage.Ceph",
+            "diagram_label": "ThinkSystem DE Storage"
+        }
+    },
+    "management": {
+        "xclarity_administrator": {
+            "name": "Lenovo XClarity Administrator",
+            "description": "Centralized hardware lifecycle management for Lenovo infrastructure",
+            "capabilities": [
+                "Inventory",
+                "Monitoring",
+                "Firmware updates",
+                "Configuration"
+            ],
+            "diagram_icon": "diagrams.onprem.compute.Server",
+            "diagram_label": "XClarity Administrator"
+        }
+    }
+}

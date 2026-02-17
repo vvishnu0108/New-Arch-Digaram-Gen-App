@@ -1,0 +1,151 @@
+{
+  "framework_selection_rules": {
+    "priority": 0,
+    "behavior": "conditional",
+    "description": "Architecture frameworks are applied ONLY when their trigger conditions are met. If no framework matches, proceed with the original architecture reasoning unchanged."
+  },
+
+  "frameworks": {
+    "azure_landing_zone": {
+      "name": "Azure Landing Zone",
+      "cloud_provider": "azure",
+      "apply_when": {
+        "any_of": [
+          "azure",
+          "azure cloud",
+          "microsoft azure",
+          "azurerm"
+        ]
+      },
+      "role": "governing_framework",
+      "enforcement_level": "mandatory",
+
+      "intent": {
+        "goal": "Provide a secure, scalable, and governed Azure platform baseline before placing workloads",
+        "scope": "platform_and_workloads"
+      },
+
+      "mandatory_platform_layers": [
+        {
+        "name": "Management Groups",
+        "purpose": "Hierarchy for governance, policy inheritance, and access control",
+        "required": false,
+        "show_when": [
+            "enterprise",
+            "multi-subscription",
+            "governance",
+            "landing zone"
+            ]
+        },
+
+        {
+          "name": "Identity",
+          "purpose": "Centralized identity and access management",
+          "required": true,
+          "components": [
+            "Azure Active Directory",
+            "RBAC",
+            "Managed Identities"
+          ]
+        },
+        {
+          "name": "Connectivity",
+          "purpose": "Centralized networking and traffic control",
+          "required": true,
+          "network_topology": "hub-spoke",
+          "components": [
+            "Virtual Network (Hub)",
+            "Azure Firewall",
+            "VPN Gateway",
+            "ExpressRoute Gateway",
+            "Azure Bastion"
+          ]
+        },
+        {
+          "name": "Management",
+          "purpose": "Operational monitoring, logging, and compliance",
+          "required": true,
+          "components": [
+            "Azure Monitor",
+            "Log Analytics Workspace",
+            "Azure Activity Logs"
+          ]
+        },
+        {
+          "name": "Security",
+          "purpose": "Security posture management and threat protection",
+          "required": true,
+          "components": [
+            "Microsoft Defender for Cloud",
+            "Azure Policy",
+            "Network Security Groups"
+          ]
+        }
+      ],
+
+      "subscription_model": {
+        "platform_subscriptions": [
+          {
+            "name": "Identity Subscription",
+            "contains": [
+              "Entra ID integration",
+              "Identity services"
+            ]
+          },
+          {
+            "name": "Connectivity Subscription",
+            "contains": [
+              "Hub Virtual Network",
+              "Firewall",
+              "VPN / ExpressRoute"
+            ]
+          },
+          {
+            "name": "Management Subscription",
+            "contains": [
+              "Azure Monitor",
+              "Log Analytics",
+              "Security tooling"
+            ]
+          }
+        ],
+        "workload_subscriptions": [
+          {
+            "name": "Landing Zone - Application",
+            "purpose": "Host application workloads"
+          },
+          {
+            "name": "Landing Zone - Data",
+            "purpose": "Host data and analytics workloads"
+          }
+        ]
+      },
+
+      "workload_placement_rules": {
+        "rule_1": "Workloads MUST be placed inside Landing Zone subscriptions",
+        "rule_2": "Workloads MUST NOT be placed directly in platform subscriptions",
+        "rule_3": "Networking for workloads MUST connect via Hub-Spoke topology"
+      },
+
+      "diagram_enforcement_rules": {
+        "require_hub_spoke_visualization": true,
+        "require_platform_vs_workload_separation": true,
+        "require_identity_layer": true,
+        "require_monitoring_layer": true,
+        "allow_simplification": true
+      },
+
+      "fallback_behavior": {
+        "if_framework_not_applicable": "skip_framework",
+        "action": "continue_with_original_prompt"
+      }
+    }
+  },
+
+  "default_behavior": {
+    "when_no_framework_matches": {
+      "action": "no_framework_applied",
+      "description": "Proceed with original architecture reasoning and patterns without modification"
+    }
+  }
+}

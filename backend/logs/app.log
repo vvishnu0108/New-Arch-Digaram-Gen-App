@@ -1,0 +1,332 @@
+2026-02-16 06:31:24 | INFO     | uvicorn.access       | 127.0.0.1:47098 - "POST /api/diagrams/generate HTTP/1.1" 200
+2026-02-16 07:44:16 | INFO     | uvicorn.error        | Shutting down
+2026-02-16 07:44:16 | INFO     | uvicorn.error        | Shutting down
+2026-02-16 07:44:16 | INFO     | uvicorn.error        | Waiting for application shutdown.
+2026-02-16 07:44:16 | INFO     | uvicorn.error        | Waiting for application shutdown.
+2026-02-16 07:44:16 | INFO     | diagram-agent.main   | Application shutting down
+2026-02-16 07:44:16 | INFO     | uvicorn.error        | Application shutdown complete.
+2026-02-16 07:44:16 | INFO     | uvicorn.error        | Application shutdown complete.
+2026-02-16 07:44:16 | INFO     | uvicorn.error        | Finished server process [2103317]
+2026-02-16 07:44:16 | INFO     | uvicorn.error        | Finished server process [2103317]
+2026-02-16 07:44:29 | INFO     | diagram-agent.main   | Application started - Generated directory ready
+2026-02-16 07:44:29 | INFO     | uvicorn.error        | Application startup complete.
+2026-02-16 07:44:29 | INFO     | uvicorn.error        | Application startup complete.
+2026-02-16 07:44:47 | INFO     | diagram-agent.agent  | Phase 1: Architecture framework applied
+2026-02-16 07:45:21 | INFO     | diagram-agent.agent  | Phase 3: Gathering architecture knowledge with tools
+2026-02-16 07:46:59 | INFO     | diagram-agent.agent  | Tool-based code generated, attempting execution
+2026-02-16 07:46:59 | WARNING  | diagram-agent.agent  | Tool-based code failed:   File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 3
+    2. **Workload Layer** (Application Subscription) hosts a Hub‑Spoke topology where the spoke VNet contains the AKS cluster, ACR, and microservice workloads.  
+                                                                ^
+SyntaxError: invalid character '‑' (U+2011)
+
+2026-02-16 07:46:59 | INFO     | diagram-agent.agent  | Phase 4: Self-correction loop
+2026-02-16 07:47:50 | WARNING  | diagram-agent.agent  | Error on attempt 1: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 3, in <module>
+    from diagrams.azure import (
+ImportError: cannot import name 'monitoring' from 'diagrams.azure' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/__init__.py). Did you mean: 'monitor'?
+
+2026-02-16 07:48:24 | WARNING  | diagram-agent.agent  | Error on attempt 2: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 27, in <module>
+    firewall = network.Firewalls()
+               ^^^^^^^^^^^^^^^^^
+AttributeError: module 'diagrams.azure.network' has no attribute 'Firewalls'. Did you mean: 'Firewall'?
+
+2026-02-16 07:48:44 | WARNING  | diagram-agent.agent  | Error on attempt 3: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 30, in <module>
+    hub_vnet = network.VirtualNetwork()
+               ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'diagrams.azure.network' has no attribute 'VirtualNetwork'. Did you mean: 'VirtualNetworks'?
+
+2026-02-16 07:49:13 | WARNING  | diagram-agent.agent  | Error on attempt 4: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 31, in <module>
+    nsghub = network.NetworkSecurityGroups("Hub NSG")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'diagrams.azure.network' has no attribute 'NetworkSecurityGroups'. Did you mean: 'NetworkSecurityGroupsClassic'?
+
+2026-02-16 07:49:37 | INFO     | uvicorn.access       | 127.0.0.1:49748 - "POST /api/diagrams/generate HTTP/1.1" 200
+2026-02-16 07:50:32 | INFO     | uvicorn.access       | 127.0.0.1:56568 - "POST /api/docs/generate HTTP/1.1" 200
+2026-02-16 07:52:45 | INFO     | diagram-agent.agent  | Phase 1: Architecture framework applied
+2026-02-16 07:53:11 | INFO     | diagram-agent.agent  | Phase 3: Gathering architecture knowledge with tools
+2026-02-16 07:55:58 | INFO     | diagram-agent.agent  | Tool-based code generated, attempting execution
+2026-02-16 07:55:58 | WARNING  | diagram-agent.agent  | Tool-based code failed:   File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2
+    The diagram follows Azure Landing Zone governance by first establishing the platform subscriptions—Management, Connectivity, and Workload—before implementing any workload.  The Connectivity subscription hosts the hub‑spoke network, ExpressRoute, Azure Firewall, Front Door, and Application Gateway, ensuring all inbound traffic flows through the mandatory ingress path.  Identity and security services (Azure AD, AD Connect Health, Azure Sentinel, Defender) reside in the Management subscription, while monitoring (Log Analytics) spans both subscriptions.  On‑premises hybrid capacity is represented by a Lenovo ThinkAgile MX node integrated through Azure Arc, placed inside a Workload subscription’s spoke VNet so that it is governed by the Landing Zone but can receive workload traffic from Azure.  All components use valid `diagrams` icons, and the resulting code can be converted to a draw.io file for presentation.
+                                                                                                      ^
+SyntaxError: invalid character '—' (U+2014)
+
+2026-02-16 07:55:58 | INFO     | diagram-agent.agent  | Phase 4: Self-correction loop
+2026-02-16 07:56:20 | WARNING  | diagram-agent.agent  | Error on attempt 1: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2, in <module>
+    from diagrams.azure.network import (
+ImportError: cannot import name 'ExpressRouteCircuit' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'ExpressrouteCircuits'?
+
+2026-02-16 07:56:45 | WARNING  | diagram-agent.agent  | Error on attempt 2: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2, in <module>
+    from diagrams.azure.network import (
+ImportError: cannot import name 'VirtualNetwork' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'VirtualNetworks'?
+
+2026-02-16 07:57:07 | WARNING  | diagram-agent.agent  | Error on attempt 3: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2, in <module>
+    from diagrams.azure.network import (
+ImportError: cannot import name 'VirtualNetworkGateway' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'VirtualNetworkGateways'?
+
+2026-02-16 07:57:28 | WARNING  | diagram-agent.agent  | Error on attempt 4: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2, in <module>
+    from diagrams.azure.network import (
+ImportError: cannot import name 'PublicIPAddress' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'PublicIpAddresses'?
+
+2026-02-16 07:57:43 | WARNING  | diagram-agent.agent  | Error on attempt 5: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 16, in <module>
+    from diagrams.azure.storage import KeyVaults
+ImportError: cannot import name 'KeyVaults' from 'diagrams.azure.storage' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/storage.py)
+
+2026-02-16 07:58:05 | WARNING  | diagram-agent.agent  | Error on attempt 6: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2, in <module>
+    from diagrams.azure.network import (
+ImportError: cannot import name 'DDOSProtectionPlan' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'DDOSProtectionPlans'?
+
+2026-02-16 07:58:22 | INFO     | uvicorn.access       | 127.0.0.1:39792 - "POST /api/diagrams/generate HTTP/1.1" 200
+2026-02-16 07:59:15 | INFO     | uvicorn.access       | 127.0.0.1:39842 - "POST /api/docs/generate HTTP/1.1" 200
+2026-02-16 08:12:17 | INFO     | uvicorn.access       | 127.0.0.1:43510 - "GET /api/diagrams/files/hybrid_azure_onprem.png HTTP/1.1" 200
+2026-02-16 08:12:29 | INFO     | uvicorn.access       | 127.0.0.1:41314 - "GET /api/diagrams/files/hybrid_azure_onprem.dot HTTP/1.1" 200
+2026-02-16 08:12:29 | INFO     | uvicorn.access       | 127.0.0.1:41324 - "GET /api/diagrams/files/hybrid_azure_onprem.drawio HTTP/1.1" 200
+2026-02-16 08:14:55 | INFO     | diagram-agent.agent  | Phase 1: Architecture framework applied
+2026-02-16 08:15:20 | INFO     | diagram-agent.agent  | Phase 3: Gathering architecture knowledge with tools
+2026-02-16 08:17:09 | INFO     | diagram-agent.agent  | Tool-based code generated, attempting execution
+2026-02-16 08:17:09 | WARNING  | diagram-agent.agent  | Tool-based code failed:   File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2
+    The diagram follows Azure Landing Zone principles by first provisioning platform subscriptions (Identity, Connectivity, Management) and only then placing the AI workload into a dedicated Workload subscription. All inbound traffic is controlled via Front Door, Azure Firewall, and Application Gateway in the hub subnet. Platform services such as Azure AD, Key Vault, Azure Defender, and Azure Monitor are declared in the appropriate subscriptions, ensuring governance, security, and observability are enforced before the workload is introduced. The workload, an Azure Web App, is connected to Azure Open AI and Cognitive Services for AI capabilities and pulls configuration secrets from Key Vault, demonstrating a secure, scalable, and production‑ready infra‑first design.
+                                                                                                                                                                                                                                                                                                                                                                          ^
+SyntaxError: invalid non-printable character U+202F
+
+2026-02-16 08:17:09 | INFO     | diagram-agent.agent  | Phase 4: Self-correction loop
+2026-02-16 08:17:41 | WARNING  | diagram-agent.agent  | Error on attempt 1: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 4, in <module>
+    from diagrams.azure.network import VirtualNetworks, Firewall, ApplicationGateway, FrontDoors, DNSZones, NatGateways
+ImportError: cannot import name 'NatGateways' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py)
+
+2026-02-16 08:17:54 | WARNING  | diagram-agent.agent  | Error on attempt 2: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 7, in <module>
+    from diagrams.azure.identity import AzureADAuthenticationMethods
+ImportError: cannot import name 'AzureADAuthenticationMethods' from 'diagrams.azure.identity' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/identity.py)
+
+2026-02-16 08:18:09 | WARNING  | diagram-agent.agent  | Error on attempt 3: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 9, in <module>
+    from diagrams.azure.monitor import ApplicationInsights, LogAnalytics
+ImportError: cannot import name 'LogAnalytics' from 'diagrams.azure.monitor' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/monitor.py)
+
+2026-02-16 08:18:29 | INFO     | uvicorn.access       | 127.0.0.1:47540 - "POST /api/diagrams/generate HTTP/1.1" 200
+2026-02-16 08:19:19 | INFO     | uvicorn.access       | 127.0.0.1:43772 - "POST /api/docs/generate HTTP/1.1" 200
+2026-02-16 08:36:50 | INFO     | uvicorn.error        | Shutting down
+2026-02-16 08:36:50 | INFO     | uvicorn.error        | Shutting down
+2026-02-16 08:36:50 | INFO     | uvicorn.error        | Waiting for application shutdown.
+2026-02-16 08:36:50 | INFO     | uvicorn.error        | Waiting for application shutdown.
+2026-02-16 08:36:50 | INFO     | diagram-agent.main   | Application shutting down
+2026-02-16 08:36:50 | INFO     | uvicorn.error        | Application shutdown complete.
+2026-02-16 08:36:50 | INFO     | uvicorn.error        | Application shutdown complete.
+2026-02-16 08:36:50 | INFO     | uvicorn.error        | Finished server process [2141893]
+2026-02-16 08:36:50 | INFO     | uvicorn.error        | Finished server process [2141893]
+2026-02-16 08:41:53 | INFO     | diagram-agent.main   | Application started - Generated directory ready
+2026-02-16 08:41:53 | INFO     | uvicorn.error        | Application startup complete.
+2026-02-16 08:41:53 | INFO     | uvicorn.error        | Application startup complete.
+2026-02-16 08:50:44 | INFO     | uvicorn.error        | Shutting down
+2026-02-16 08:50:44 | INFO     | uvicorn.error        | Shutting down
+2026-02-16 08:50:44 | INFO     | uvicorn.error        | Waiting for application shutdown.
+2026-02-16 08:50:44 | INFO     | uvicorn.error        | Waiting for application shutdown.
+2026-02-16 08:50:44 | INFO     | diagram-agent.main   | Application shutting down
+2026-02-16 08:50:44 | INFO     | uvicorn.error        | Application shutdown complete.
+2026-02-16 08:50:44 | INFO     | uvicorn.error        | Application shutdown complete.
+2026-02-16 08:50:44 | INFO     | uvicorn.error        | Finished server process [2149838]
+2026-02-16 08:50:44 | INFO     | uvicorn.error        | Finished server process [2149838]
+2026-02-16 10:29:11 | INFO     | diagram-agent.main   | Application started - Generated directory ready
+2026-02-16 10:29:11 | INFO     | uvicorn.error        | Application startup complete.
+2026-02-16 10:29:11 | INFO     | uvicorn.error        | Application startup complete.
+2026-02-16 10:29:13 | INFO     | diagram-agent.agent  | Phase 1: Architecture framework applied
+2026-02-16 10:29:53 | INFO     | diagram-agent.agent  | Phase 3: Gathering architecture knowledge with tools
+2026-02-16 10:32:12 | INFO     | diagram-agent.agent  | Tool-based code generated, attempting execution
+2026-02-16 10:32:12 | WARNING  | diagram-agent.agent  | Tool-based code failed:   File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 1
+    Architectural Reasoning: This design follows Azure Landing Zone principles with clear separation between platform and workload concerns. The Connectivity subscription hosts the hub VNet, firewall, and application gateway to control all ingress/egress. The Workload subscription contains a spoke VNet with AKS, ACR, microservices, API Management, and supporting data services, all connected via private endpoints. Platform services—Azure AD, Defender, Key Vault, Log Analytics, and Application Insights—are placed in dedicated platform clusters to enforce identity, security, governance, and observability. The diagram also includes CI/CD and resilience patterns such as health checks, circuit breakers, retries, and autoscaling.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^
+SyntaxError: invalid character '—' (U+2014)
+
+2026-02-16 10:32:12 | INFO     | diagram-agent.agent  | Phase 4: Self-correction loop
+2026-02-16 10:32:47 | WARNING  | diagram-agent.agent  | Error on attempt 1: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 3, in <module>
+    from diagrams.azure.network import ApplicationGateway, FrontDoor, Firewall, VirtualNetwork
+ImportError: cannot import name 'FrontDoor' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'FrontDoors'?
+
+2026-02-16 10:33:14 | WARNING  | diagram-agent.agent  | Error on attempt 2: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 3, in <module>
+    from diagrams.azure.network import ApplicationGateway, FrontDoors, Firewall, VirtualNetwork
+ImportError: cannot import name 'VirtualNetwork' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'VirtualNetworks'?
+
+2026-02-16 10:33:53 | INFO     | uvicorn.access       | 127.0.0.1:52502 - "POST /api/diagrams/generate HTTP/1.1" 200
+2026-02-16 10:33:53 | INFO     | diagram-agent.agent  | Phase 1: Architecture framework applied
+2026-02-16 10:34:11 | INFO     | diagram-agent.agent  | Phase 3: Gathering architecture knowledge with tools
+2026-02-16 10:35:35 | INFO     | diagram-agent.agent  | Tool-based code generated, attempting execution
+2026-02-16 10:35:36 | WARNING  | diagram-agent.agent  | Tool-based code failed:   File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2
+    This design follows Azure Landing Zone principles by first defining a clear platform topology—Management, Connectivity, and Workload subscriptions—ensuring governance, identity, and security services live outside any workload subscription.  The connectivity layer controls all inbound traffic (Internet → Front Door → Firewall → Application Gateway → Spoke VNet), satisfying the mandated traffic path.  On‑premise ThinkAgile MX nodes are connected to Azure via ExpressRoute and managed through Azure Arc, providing a unified management view while keeping data close to compute.  All required infrastructure layers (identity, security, connectivity, monitoring, key vault, etc.) are represented, and a complex application stack (AKS, ACR, API Management, Cosmos DB, Redis, Blob Storage, Application Insights, Log Analytics, Sentinel) is placed in a dedicated workload subscription.  The diagram contains more than 20 components, adheres to no‑cross‑subscription violations, and logs all inbound traffic correctly.
+                                                                                                 ^
+SyntaxError: invalid character '—' (U+2014)
+
+2026-02-16 10:35:36 | INFO     | diagram-agent.agent  | Phase 4: Self-correction loop
+2026-02-16 10:36:04 | WARNING  | diagram-agent.agent  | Error on attempt 1: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 3, in <module>
+    from diagrams.azure.monitoring import LogAnalyticsWorkspaces, ApplicationInsights, Monitor
+ModuleNotFoundError: No module named 'diagrams.azure.monitoring'
+
+2026-02-16 10:36:36 | WARNING  | diagram-agent.agent  | Error on attempt 2: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 4, in <module>
+    from diagrams.azure.monitoring import LogAnalyticsWorkspaces, ApplicationInsights
+ModuleNotFoundError: No module named 'diagrams.azure.monitoring'
+
+2026-02-16 10:37:22 | WARNING  | diagram-agent.agent  | Error on attempt 3: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 5, in <module>
+    from diagrams.azure.identity import AzureAD, AzureADConnect
+ImportError: cannot import name 'AzureAD' from 'diagrams.azure.identity' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/identity.py). Did you mean: 'AzureADB2C'?
+
+2026-02-16 10:37:44 | WARNING  | diagram-agent.agent  | Error on attempt 4: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 5, in <module>
+    from diagrams.azure.identity import AzureADB2C, AzureADConnect, AzureADConnectHealth
+ImportError: cannot import name 'AzureADConnect' from 'diagrams.azure.identity' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/identity.py)
+
+2026-02-16 10:38:23 | WARNING  | diagram-agent.agent  | Error on attempt 5: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 5, in <module>
+    from diagrams.azure.identity import AzureADB2C, AzureADConnectHealth
+ImportError: cannot import name 'AzureADConnectHealth' from 'diagrams.azure.identity' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/identity.py)
+
+2026-02-16 10:38:41 | WARNING  | diagram-agent.agent  | Error on attempt 6: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 6, in <module>
+    from diagrams.azure.network import FrontDoors, ApplicationGateway, Firewall, ExpressRouteCircuits
+ImportError: cannot import name 'ExpressRouteCircuits' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'ExpressrouteCircuits'?
+
+2026-02-16 10:39:08 | INFO     | uvicorn.access       | 127.0.0.1:47416 - "POST /api/diagrams/generate HTTP/1.1" 200
+2026-02-16 11:59:18 | INFO     | uvicorn.error        | Shutting down
+2026-02-16 11:59:18 | INFO     | uvicorn.error        | Shutting down
+2026-02-16 11:59:18 | INFO     | uvicorn.error        | Waiting for application shutdown.
+2026-02-16 11:59:18 | INFO     | uvicorn.error        | Waiting for application shutdown.
+2026-02-16 11:59:18 | INFO     | diagram-agent.main   | Application shutting down
+2026-02-16 11:59:18 | INFO     | uvicorn.error        | Application shutdown complete.
+2026-02-16 11:59:18 | INFO     | uvicorn.error        | Application shutdown complete.
+2026-02-16 11:59:18 | INFO     | uvicorn.error        | Finished server process [2167615]
+2026-02-16 11:59:18 | INFO     | uvicorn.error        | Finished server process [2167615]
+2026-02-16 11:59:31 | INFO     | diagram-agent.main   | Application started - Generated directory ready
+2026-02-16 11:59:31 | INFO     | uvicorn.error        | Application startup complete.
+2026-02-16 11:59:31 | INFO     | uvicorn.error        | Application startup complete.
+2026-02-17 00:06:21 | INFO     | diagram-agent.agent  | Phase 1: Architecture framework applied
+2026-02-17 00:06:45 | INFO     | diagram-agent.agent  | Phase 3: Gathering architecture knowledge with tools
+2026-02-17 00:07:52 | INFO     | diagram-agent.agent  | Tool-based code generated, attempting execution
+2026-02-17 00:07:52 | WARNING  | diagram-agent.agent  | Tool-based code failed:   File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2
+    This diagram respects Azure Landing Zone principles by first provisioning platform‑wide subscriptions—Identity, Connectivity, and Management—before deploying the workload. The Connectivity layer houses a Hub VNet, Firewall, Front Door, and Application Gateway that funnel all inbound traffic from the user through the required ingress path (User → Front Door → Firewall → App Gateway → Spoke). The workload resides in a separate Application Subscription within a Spoke VNet that peers to the Hub. A Storage Account with public and private Blob containers is placed inside the Spoke; the IIS VM accesses the private container through a private endpoint while the public container is directly reachable. Platform services such as Azure AD, Azure Monitor, Log Analytics, and Defender provide identity, monitoring, and security governance across all subscriptions. The diagram shows each component in its correct subscription, ensuring no cross‑subscription mis‑placements and a clear separation of platform from workload concerns.
+                                                                                      ^
+SyntaxError: invalid character '‑' (U+2011)
+
+2026-02-17 00:07:52 | INFO     | diagram-agent.agent  | Phase 4: Self-correction loop
+2026-02-17 00:08:16 | INFO     | uvicorn.access       | 127.0.0.1:40924 - "POST /api/diagrams/generate HTTP/1.1" 200
+2026-02-17 00:20:03 | INFO     | diagram-agent.agent  | Phase 1: Architecture framework applied
+2026-02-17 00:20:33 | INFO     | diagram-agent.agent  | Phase 3: Gathering architecture knowledge with tools
+2026-02-17 00:21:49 | INFO     | diagram-agent.agent  | Tool-based code generated, attempting execution
+2026-02-17 00:21:49 | WARNING  | diagram-agent.agent  | Tool-based code failed:   File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2
+    This design follows Azure Landing Zone principles by first provisioning platform subscriptions for identity, connectivity, and management, and then hosting the microservices workload in a dedicated workload subscription. The hub‑spoke network guarantees that all inbound traffic traverses Front Door → Firewall → Application Gateway before reaching the spoke VNet where AKS runs the microservices. Platform services such as Azure AD, Key Vault, Azure Defender, Microsoft Sentinel, Azure Monitor, Log Analytics, and Azure DevOps are scoped to the appropriate subscriptions to enforce governance, security, and observability across the entire solution.
+                                                                                                                                                                                                                                        ^
+SyntaxError: invalid character '‑' (U+2011)
+
+2026-02-17 00:21:49 | INFO     | diagram-agent.agent  | Phase 4: Self-correction loop
+2026-02-17 00:22:28 | WARNING  | diagram-agent.agent  | Error on attempt 1: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 3, in <module>
+    from diagrams.azure.security import KeyVaults, AzureSentinel, Defender, NetworkSecurityGroups
+ImportError: cannot import name 'NetworkSecurityGroups' from 'diagrams.azure.security' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/security.py)
+
+2026-02-17 00:22:51 | WARNING  | diagram-agent.agent  | Error on attempt 2: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 5, in <module>
+    from diagrams.azure.container import AKS, ContainerRegistry
+ModuleNotFoundError: No module named 'diagrams.azure.container'
+
+2026-02-17 00:23:25 | INFO     | uvicorn.access       | 127.0.0.1:58918 - "POST /api/diagrams/generate HTTP/1.1" 200
+2026-02-17 00:27:11 | INFO     | diagram-agent.agent  | Phase 1: No architecture framework applied
+2026-02-17 00:28:00 | INFO     | diagram-agent.agent  | Phase 3: Gathering architecture knowledge with tools
+2026-02-17 00:28:58 | INFO     | diagram-agent.agent  | Tool-based code generated, attempting execution
+2026-02-17 00:28:58 | WARNING  | diagram-agent.agent  | Tool-based code failed:   File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2
+    This diagram depicts a minimal yet production‑ready Azure app that hosts a web application on Azure App Service. All traffic to the Storage Account flows through a Private Endpoint, guaranteeing that data never traverses the public Internet. Azure AD is the sole identity provider, enforcing RBAC across the App Service, Storage, and Key Vault. Key Vault stores application secrets while the App Service retrieves them at runtime, satisfying the requirement for secure RBAC‑based access. This layout follows Azure best practices for network isolation, identity, and secret management without violating any framework constraints.  
+                                                 ^
+SyntaxError: invalid character '‑' (U+2011)
+
+2026-02-17 00:28:58 | INFO     | diagram-agent.agent  | Phase 4: Self-correction loop
+2026-02-17 00:29:25 | WARNING  | diagram-agent.agent  | Error on attempt 1: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2, in <module>
+    from diagrams.azure.compute import AppServicePlan, AppService
+ImportError: cannot import name 'AppServicePlan' from 'diagrams.azure.compute' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/compute.py). Did you mean: 'AppServices'?
+
+2026-02-17 00:29:35 | WARNING  | diagram-agent.agent  | Error on attempt 2: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 6, in <module>
+    from diagrams.azure.security import KeyVault
+ImportError: cannot import name 'KeyVault' from 'diagrams.azure.security' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/security.py). Did you mean: 'KeyVaults'?
+
+2026-02-17 00:29:49 | INFO     | uvicorn.access       | 127.0.0.1:41256 - "POST /api/diagrams/generate HTTP/1.1" 200
+2026-02-17 00:38:17 | INFO     | diagram-agent.agent  | Phase 1: Architecture framework applied
+2026-02-17 00:38:59 | INFO     | diagram-agent.agent  | Phase 3: Gathering architecture knowledge with tools
+2026-02-17 00:40:33 | INFO     | diagram-agent.agent  | Tool-based code generated, attempting execution
+2026-02-17 00:40:33 | WARNING  | diagram-agent.agent  | Tool-based code failed:   File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 2
+    The design follows Azure Landing Zone guidelines by separating platform concerns (Management, Connectivity, Workload) into distinct subscriptions and clustering. Management services such as Log Analytics and Defender for Cloud sit in the Management Subscription, ensuring governance and monitoring. Connectivity services (Front Door, Azure Firewall, Hub VNet, UDR) reside in the Connectivity Subscription, enforcing inbound traffic control and preventing direct exposure of workloads. Workloads (two Windows VMs with data disks) are placed in a dedicated Workload Subscription within a Spoke VNet; the NSG explicitly denies RDP (3389), satisfying security requirements. All traffic flows through the prescribed path – User → Front Door → Firewall → Hub → Spoke → VM – guaranteeing compliance with the LZ connectivity stack.
+                                                                                                                                                                                                                                                                                                                                                                     ^
+SyntaxError: invalid non-printable character U+202F
+
+2026-02-17 00:40:33 | INFO     | diagram-agent.agent  | Phase 4: Self-correction loop
+2026-02-17 00:41:01 | WARNING  | diagram-agent.agent  | Error on attempt 1: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 4, in <module>
+    from diagrams.azure.network import FrontDoor, Firewall, VNet, Subnet, RouteTable, NetworkSecurityGroup
+ImportError: cannot import name 'FrontDoor' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'FrontDoors'?
+
+2026-02-17 00:41:11 | WARNING  | diagram-agent.agent  | Error on attempt 2: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 4, in <module>
+    from diagrams.azure.network import FrontDoors, Firewall, VNet, Subnet, RouteTable, NetworkSecurityGroup
+ImportError: cannot import name 'VNet' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py)
+
+2026-02-17 00:41:31 | WARNING  | diagram-agent.agent  | Error on attempt 3: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 4, in <module>
+    from diagrams.azure.network import FrontDoors, Firewall, Subnet, RouteTable, NetworkSecurityGroup
+ImportError: cannot import name 'Subnet' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'Subnets'?
+
+2026-02-17 00:41:47 | WARNING  | diagram-agent.agent  | Error on attempt 4: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 4, in <module>
+    from diagrams.azure.network import FrontDoors, Firewall, NetworkSecurityGroup
+ImportError: cannot import name 'NetworkSecurityGroup' from 'diagrams.azure.network' (/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/azure/network.py). Did you mean: 'NetworkSecurityGroupsClassic'?
+
+2026-02-17 00:41:58 | WARNING  | diagram-agent.agent  | Error on attempt 5: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 13, in <module>
+    log_workspace = LogAnalyticsWorkspaces(name="Log Analytics")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/__init__.py", line 335, in __init__
+    self._cluster.node(self._id, self.label, **self._attrs)
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/__init__.py", line 279, in node
+    self.dot.node(nodeid, label=label, **attrs)
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/graphviz/_tools.py", line 171, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: Dot.node() got multiple values for argument 'name'
+
+2026-02-17 00:42:12 | WARNING  | diagram-agent.agent  | Error on attempt 6: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 14, in <module>
+    defender = Defender(name="Defender for Cloud")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/__init__.py", line 335, in __init__
+    self._cluster.node(self._id, self.label, **self._attrs)
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/__init__.py", line 279, in node
+    self.dot.node(nodeid, label=label, **attrs)
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/graphviz/_tools.py", line 171, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: Dot.node() got multiple values for argument 'name'
+
+2026-02-17 00:42:24 | WARNING  | diagram-agent.agent  | Error on attempt 7: Traceback (most recent call last):
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/generated/temp_diagram_script.py", line 18, in <module>
+    user = User(name="User")
+           ^^^^^^^^^^^^^^^^^
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/__init__.py", line 335, in __init__
+    self._cluster.node(self._id, self.label, **self._attrs)
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/diagrams/__init__.py", line 279, in node
+    self.dot.node(nodeid, label=label, **attrs)
+  File "/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/graphviz/_tools.py", line 171, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: Dot.node() got multiple values for argument 'name'
+
+2026-02-17 00:42:39 | INFO     | uvicorn.access       | 127.0.0.1:56216 - "POST /api/diagrams/generate HTTP/1.1" 200

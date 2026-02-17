@@ -1,0 +1,49 @@
+{
+  "provider": "azure",
+  "description": "Capabilities and constraints of key Azure services relevant to architecture diagramming",
+  "usage_notes": {
+    "general": "Use this information to accurately represent Azure services in architecture diagrams and ensure compliance with best practices.",
+    "enforcement": "Enforce these capabilities and constraints when generating diagrams. If a requested service violates these rules, either adjust the diagram to comply or provide a clear justification for the deviation."
+  },
+  "service_capabilities": {
+    "app_service": {
+      "networking_model": "vnet_integrated",
+      "must_not": [
+        "be_drawn_inside_vnet",
+        "own_subnets"
+      ],
+      "allowed_connections": [
+        "vnet_integration",
+        "private_endpoint"
+      ]
+    },
+    "cosmos_db": {
+      "networking_model": "paas_external",
+      "allowed_access": [
+        "private_endpoint",
+        "service_endpoint"
+      ],
+      "must_not": [
+        "be_drawn_inside_vnet"
+      ]
+    },
+    "azure_sql_database": {
+      "networking_model": "paas_external",
+      "allowed_access": [
+        "private_endpoint"
+      ]
+    }
+  },
+  "diagram_enforcement": {
+    "vnet_integrated_services": {
+      "rule": "Draw outside VNet boundary with dashed integration link"
+    },
+    "paas_external_services": {
+      "rule": "Draw outside VNet boundary and connect via Private Endpoint"
+    },
+    "subscription_representation": {
+      "rule": "Subscriptions MUST be represented as cluster boundaries, never as service icons"
+    }
+
+  }
+}

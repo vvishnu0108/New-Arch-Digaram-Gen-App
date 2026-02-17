@@ -1,0 +1,512 @@
+{
+    "networking": {
+        "gcp": {
+            "components": [
+                {
+                    "name": "VPC",
+                    "icon": "diagrams.gcp.network.VPC",
+                    "purpose": "Virtual Private Cloud network"
+                },
+                {
+                    "name": "Cloud NAT",
+                    "icon": "diagrams.gcp.network.NAT",
+                    "purpose": "Network address translation for private instances"
+                },
+                {
+                    "name": "Cloud DNS",
+                    "icon": "diagrams.gcp.network.DNS",
+                    "purpose": "Managed DNS service"
+                },
+                {
+                    "name": "Cloud Load Balancing",
+                    "icon": "diagrams.gcp.network.LoadBalancing",
+                    "purpose": "Global and regional load balancing"
+                },
+                {
+                    "name": "Cloud Armor",
+                    "icon": "diagrams.gcp.security.Iam",
+                    "purpose": "DDoS protection and WAF"
+                },
+                {
+                    "name": "Cloud Firewall",
+                    "icon": "diagrams.gcp.network.Firewall",
+                    "purpose": "Network firewall rules"
+                }
+            ]
+        },
+        "aws": {
+            "components": [
+                {
+                    "name": "VPC",
+                    "icon": "diagrams.aws.network.VPC",
+                    "purpose": "Virtual Private Cloud"
+                },
+                {
+                    "name": "NAT Gateway",
+                    "icon": "diagrams.aws.network.NATGateway",
+                    "purpose": "NAT for private subnets"
+                },
+                {
+                    "name": "Route53",
+                    "icon": "diagrams.aws.network.Route53",
+                    "purpose": "DNS service"
+                },
+                {
+                    "name": "ALB",
+                    "icon": "diagrams.aws.network.ALB",
+                    "purpose": "Application Load Balancer"
+                },
+                {
+                    "name": "WAF",
+                    "icon": "diagrams.aws.security.WAF",
+                    "purpose": "Web Application Firewall"
+                },
+                {
+                    "name": "Security Groups",
+                    "icon": "diagrams.aws.security.Cognito",
+                    "purpose": "Virtual firewall for instances"
+                }
+            ]
+        },
+        "azure": {
+            "components": [
+                {
+                    "name": "Subscriptions",
+                    "icon": "diagrams.azure.general.Subscriptions",
+                    "purpose": "Azure Subscription"
+                },
+                {
+                    "name": "Resource Group",
+                    "icon": "diagrams.azure.general.ResourceGroups",
+                    "purpose": "Logical container for resources"
+                },
+                {
+                    "name": "Virtual Network",
+                    "icon": "diagrams.azure.network.VirtualNetworks",
+                    "purpose": "Azure VNet"
+                },
+                {
+                    "name": "Network Security Group",
+                    "icon": "diagrams.azure.network.NetworkSecurityGroups",
+                    "purpose": "Subnet and NIC level firewall"
+                },
+                {
+                    "name": "Disks",
+                    "icon": "diagrams.azure.compute.Disks",
+                    "purpose": "Managed disks for VMs"
+                },
+                {
+                    "name": "Data Disks",
+                    "icon": "diagrams.azure.compute.Disks",
+                    "purpose": "Additional disks for VMs"
+                },
+                {
+                    "name": "NAT Gateway",
+                    "icon": "diagrams.azure.network.NATGateways",
+                    "purpose": "Outbound NAT"
+                },
+                {
+                    "name": "Azure DNS",
+                    "icon": "diagrams.azure.network.DNSZones",
+                    "purpose": "DNS hosting"
+                },
+                {
+                    "name": "Application Gateway",
+                    "icon": "diagrams.azure.network.ApplicationGateway",
+                    "purpose": "L7 load balancer"
+                },
+                {
+                    "name": "Azure Firewall",
+                    "icon": "diagrams.azure.network.Firewall",
+                    "purpose": "Managed firewall"
+                },
+                {
+                    "name": "Front Door",
+                    "icon": "diagrams.azure.network.FrontDoors",
+                    "purpose": "Global load balancer and CDN"
+                }
+            ]
+        },
+        "onprem": {
+            "components": [
+                {
+                    "name": "ToR Switch",
+                    "icon": "diagrams.onprem.network.Consul",
+                    "purpose": "Top-of-rack switching"
+                },
+                {
+                    "name": "Spine Switch",
+                    "icon": "diagrams.onprem.network.Consul",
+                    "purpose": "Spine layer switching"
+                },
+                {
+                    "name": "Firewall",
+                    "icon": "diagrams.onprem.network.Pfsense",
+                    "purpose": "Network firewall"
+                },
+                {
+                    "name": "Load Balancer",
+                    "icon": "diagrams.onprem.network.Haproxy",
+                    "purpose": "Traffic distribution"
+                },
+                {
+                    "name": "DNS Server",
+                    "icon": "diagrams.onprem.dns.Coredns",
+                    "purpose": "DNS resolution"
+                }
+            ]
+        }
+    },
+    "security": {
+        "gcp": {
+            "components": [
+                {
+                    "name": "Cloud IAM",
+                    "icon": "diagrams.gcp.security.Iam",
+                    "purpose": "Identity and access management"
+                },
+                {
+                    "name": "Cloud KMS",
+                    "icon": "diagrams.gcp.security.KeyManagementService",
+                    "purpose": "Key management"
+                },
+                {
+                    "name": "Secret Manager",
+                    "icon": "diagrams.gcp.security.KeyManagementService",
+                    "purpose": "Secrets storage"
+                },
+                {
+                    "name": "Cloud Armor",
+                    "icon": "diagrams.gcp.security.Iam",
+                    "purpose": "DDoS and WAF"
+                }
+            ]
+        },
+        "aws": {
+            "components": [
+                {
+                    "name": "IAM",
+                    "icon": "diagrams.aws.security.IAM",
+                    "purpose": "Identity and access management"
+                },
+                {
+                    "name": "KMS",
+                    "icon": "diagrams.aws.security.KMS",
+                    "purpose": "Key management"
+                },
+                {
+                    "name": "Secrets Manager",
+                    "icon": "diagrams.aws.security.SecretsManager",
+                    "purpose": "Secrets storage"
+                },
+                {
+                    "name": "WAF",
+                    "icon": "diagrams.aws.security.WAF",
+                    "purpose": "Web Application Firewall"
+                },
+                {
+                    "name": "Shield",
+                    "icon": "diagrams.aws.security.Shield",
+                    "purpose": "DDoS protection"
+                }
+            ]
+        },
+        "azure": {
+            "components": [
+                {
+                    "name": "Azure AD",
+                    "icon": "diagrams.azure.identity.ActiveDirectory",
+                    "purpose": "Identity management"
+                },
+                {
+                    "name": "Key Vault",
+                    "icon": "diagrams.azure.security.KeyVaults",
+                    "purpose": "Key and secret management"
+                },
+                {
+                    "name": "Azure Firewall",
+                    "icon": "diagrams.azure.network.Firewall",
+                    "purpose": "Network security"
+                }
+            ]
+        },
+        "onprem": {
+            "components": [
+                {
+                    "name": "Active Directory",
+                    "icon": "diagrams.onprem.auth.Oauth",
+                    "purpose": "Directory services"
+                },
+                {
+                    "name": "HashiCorp Vault",
+                    "icon": "diagrams.onprem.security.Vault",
+                    "purpose": "Secrets management"
+                },
+                {
+                    "name": "Firewall",
+                    "icon": "diagrams.onprem.network.Pfsense",
+                    "purpose": "Network security"
+                }
+            ]
+        }
+    },
+    "monitoring": {
+        "gcp": {
+            "components": [
+                {
+                    "name": "Cloud Monitoring",
+                    "icon": "diagrams.gcp.devtools.Monitoring",
+                    "purpose": "Metrics and dashboards"
+                },
+                {
+                    "name": "Cloud Logging",
+                    "icon": "diagrams.gcp.devtools.Logging",
+                    "purpose": "Log aggregation"
+                },
+                {
+                    "name": "Cloud Trace",
+                    "icon": "diagrams.gcp.devtools.Trace",
+                    "purpose": "Distributed tracing"
+                },
+                {
+                    "name": "Error Reporting",
+                    "icon": "diagrams.gcp.devtools.Monitoring",
+                    "purpose": "Error tracking"
+                }
+            ]
+        },
+        "aws": {
+            "components": [
+                {
+                    "name": "CloudWatch",
+                    "icon": "diagrams.aws.management.Cloudwatch",
+                    "purpose": "Metrics and logs"
+                },
+                {
+                    "name": "X-Ray",
+                    "icon": "diagrams.aws.integration.Appsync",
+                    "purpose": "Distributed tracing"
+                },
+                {
+                    "name": "CloudTrail",
+                    "icon": "diagrams.aws.management.Cloudtrail",
+                    "purpose": "API audit logs"
+                }
+            ]
+        },
+        "azure": {
+            "components": [
+                {
+                    "name": "Azure Monitor",
+                    "icon": "diagrams.azure.monitor.Monitor",
+                    "purpose": "Metrics and logs"
+                },
+                {
+                    "name": "Log Analytics",
+                    "icon": "diagrams.azure.monitor.LogAnalyticsWorkspaces",
+                    "purpose": "Log querying"
+                },
+                {
+                    "name": "Application Insights",
+                    "icon": "diagrams.azure.monitor.ApplicationInsights",
+                    "purpose": "APM"
+                }
+            ]
+        },
+        "onprem": {
+            "components": [
+                {
+                    "name": "Prometheus",
+                    "icon": "diagrams.onprem.monitoring.Prometheus",
+                    "purpose": "Metrics collection"
+                },
+                {
+                    "name": "Grafana",
+                    "icon": "diagrams.onprem.monitoring.Grafana",
+                    "purpose": "Visualization"
+                },
+                {
+                    "name": "ELK Stack",
+                    "icon": "diagrams.elastic.elasticsearch.Elasticsearch",
+                    "purpose": "Log management"
+                },
+                {
+                    "name": "Jaeger",
+                    "icon": "diagrams.onprem.tracing.Jaeger",
+                    "purpose": "Distributed tracing"
+                }
+            ]
+        }
+    },
+    "storage": {
+        "gcp": {
+            "components": [
+                {
+                    "name": "Cloud Storage",
+                    "icon": "diagrams.gcp.storage.GCS",
+                    "purpose": "Object storage"
+                },
+                {
+                    "name": "Persistent Disk",
+                    "icon": "diagrams.gcp.storage.PersistentDisk",
+                    "purpose": "Block storage"
+                },
+                {
+                    "name": "Filestore",
+                    "icon": "diagrams.gcp.storage.Filestore",
+                    "purpose": "File storage"
+                }
+            ]
+        },
+        "aws": {
+            "components": [
+                {
+                    "name": "S3",
+                    "icon": "diagrams.aws.storage.S3",
+                    "purpose": "Object storage"
+                },
+                {
+                    "name": "EBS",
+                    "icon": "diagrams.aws.storage.EBS",
+                    "purpose": "Block storage"
+                },
+                {
+                    "name": "EFS",
+                    "icon": "diagrams.aws.storage.EFS",
+                    "purpose": "File storage"
+                }
+            ]
+        },
+        "azure": {
+            "components": [
+                {
+                    "name": "Blob Storage",
+                    "icon": "diagrams.azure.storage.BlobStorage",
+                    "purpose": "Object storage"
+                },
+                {
+                    "name": "Managed Disks",
+                    "icon": "diagrams.azure.storage.StorageAccounts",
+                    "purpose": "Block storage"
+                },
+                {
+                    "name": "Azure Files",
+                    "icon": "diagrams.azure.storage.StorageAccounts",
+                    "purpose": "File storage"
+                }
+            ]
+        },
+        "onprem": {
+            "components": [
+                {
+                    "name": "Ceph",
+                    "icon": "diagrams.onprem.storage.Ceph",
+                    "purpose": "Distributed storage"
+                },
+                {
+                    "name": "NFS",
+                    "icon": "diagrams.onprem.storage.Ceph",
+                    "purpose": "Network file system"
+                },
+                {
+                    "name": "ThinkSystem DM",
+                    "icon": "diagrams.onprem.storage.Ceph",
+                    "purpose": "Lenovo unified storage"
+                }
+            ]
+        }
+    },
+    "compute": {
+        "gcp": {
+            "components": [
+                {
+                    "name": "Compute Engine",
+                    "icon": "diagrams.gcp.compute.ComputeEngine",
+                    "purpose": "Virtual machines"
+                },
+                {
+                    "name": "GKE",
+                    "icon": "diagrams.gcp.compute.GKE",
+                    "purpose": "Kubernetes service"
+                },
+                {
+                    "name": "Cloud Run",
+                    "icon": "diagrams.gcp.compute.Run",
+                    "purpose": "Serverless containers"
+                },
+                {
+                    "name": "Cloud Functions",
+                    "icon": "diagrams.gcp.compute.Functions",
+                    "purpose": "Serverless functions"
+                }
+            ]
+        },
+        "aws": {
+            "components": [
+                {
+                    "name": "EC2",
+                    "icon": "diagrams.aws.compute.EC2",
+                    "purpose": "Virtual machines"
+                },
+                {
+                    "name": "EKS",
+                    "icon": "diagrams.aws.compute.EKS",
+                    "purpose": "Kubernetes service"
+                },
+                {
+                    "name": "Lambda",
+                    "icon": "diagrams.aws.compute.Lambda",
+                    "purpose": "Serverless functions"
+                },
+                {
+                    "name": "Fargate",
+                    "icon": "diagrams.aws.compute.Fargate",
+                    "purpose": "Serverless containers"
+                }
+            ]
+        },
+        "azure": {
+            "components": [
+                {
+                    "name": "Virtual Machines",
+                    "icon": "diagrams.azure.compute.VM",
+                    "purpose": "VMs"
+                },
+                {
+                    "name": "AKS",
+                    "icon": "diagrams.azure.compute.AKS",
+                    "purpose": "Kubernetes service"
+                },
+                {
+                    "name": "Functions",
+                    "icon": "diagrams.azure.compute.FunctionApps",
+                    "purpose": "Serverless functions"
+                },
+                {
+                    "name": "Container Apps",
+                    "icon": "diagrams.azure.compute.ContainerApps",
+                    "purpose": "Serverless containers"
+                }
+            ]
+        },
+        "onprem": {
+            "components": [
+                {
+                    "name": "Server",
+                    "icon": "diagrams.onprem.compute.Server",
+                    "purpose": "Physical/virtual server"
+                },
+                {
+                    "name": "Kubernetes",
+                    "icon": "diagrams.k8s.compute.Pod",
+                    "purpose": "Container orchestration"
+                },
+                {
+                    "name": "Docker",
+                    "icon": "diagrams.onprem.container.Docker",
+                    "purpose": "Containers"
+                }
+            ]
+        }
+    }
+}

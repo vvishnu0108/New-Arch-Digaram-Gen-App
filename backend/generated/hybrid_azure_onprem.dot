@@ -1,0 +1,329 @@
+digraph hybrid_azure_onprem {
+	graph [bb="0,0,1016,1479",
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=15,
+		label=hybrid_azure_onprem,
+		lheight=0.24,
+		lp="508,12.5",
+		lwidth=2.26,
+		nodesep=0.60,
+		pad=2.0,
+		rankdir=LR,
+		ranksep=0.75,
+		splines=ortho
+	];
+	node [fixedsize=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		height=1.4,
+		imagescale=true,
+		label="\N",
+		labelloc=b,
+		shape=box,
+		style=rounded,
+		width=1.4
+	];
+	edge [color="#7B8894"];
+	subgraph "cluster_Management Subscription" {
+		graph [bb="672,33,845,928",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Management Subscription",
+			labeljust=l,
+			lheight=0.18,
+			lp="758.5,917.5",
+			lwidth=2.18,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"1f95a569f3554aae8708c281669e6bfe"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/identity/\
+active-directory.png",
+			label="Azure AD",
+			pos="758.5,830",
+			shape=none,
+			width=1.4028];
+		"6f2cd08f60d74d7ab928f6055d8ef60f"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/identity/\
+active-directory-connect-health.png",
+			label="AD Connect Health",
+			pos="758.5,650",
+			shape=none,
+			width=1.4028];
+		"080b20dbbb5e44f6bb74cda643b29e29"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/monitor/\
+log-analytics-workspaces.png",
+			label="Log Analytics",
+			pos="758.5,470",
+			shape=none,
+			width=1.4028];
+		"67b0c3de735842eda0e22813e6b39d09"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/security/\
+azure-sentinel.png",
+			label="Azure Sentinel",
+			pos="758.5,290",
+			shape=none,
+			width=1.4028];
+		ed05b7bd4dc546a9b17be48f73df1d65	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/security/\
+defender.png",
+			label=Defender,
+			pos="758.5,110",
+			shape=none,
+			width=1.4028];
+	}
+	subgraph "cluster_Connectivity Subscription" {
+		graph [bb="8,936,1008,1471",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Connectivity Subscription",
+			labeljust=l,
+			lheight=0.18,
+			lp="91.5,1460.5",
+			lwidth=2.10,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_Hub VNet" {
+			graph [bb="700,1116,817,1291",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="Hub VNet",
+				labeljust=l,
+				lheight=0.18,
+				lp="737,1280.5",
+				lwidth=0.81,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			a6d338b014944be69668fe7d4defefcf	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+virtual-networks.png",
+				label="Hub VNet",
+				pos="758.5,1193",
+				shape=none,
+				width=1.4028];
+		}
+		subgraph "cluster_Spoke VNet" {
+			graph [bb="883,1030,1000,1205",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="Spoke VNet",
+				labeljust=l,
+				lheight=0.18,
+				lp="926,1194.5",
+				lwidth=0.97,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"2e0d486b8c7643a28426e8f314184f18"	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+virtual-networks.png",
+				label="Spoke VNet",
+				pos="941.5,1107",
+				shape=none,
+				width=1.4028];
+		}
+		"1c7d27f15a434eb1bea856de77152b2c"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+public-ip-addresses.png",
+			label="Public IP",
+			pos="66.5,1373",
+			shape=none,
+			width=1.4028];
+		"8ce597f03f7e4dffb96cac5f0266237c"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+front-doors.png",
+			label="Front Door",
+			pos="221.5,1373",
+			shape=none,
+			width=1.4028];
+		"1c7d27f15a434eb1bea856de77152b2c" -> "8ce597f03f7e4dffb96cac5f0266237c"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,170.9,1373 117.25,1373 117.25,1373 160.9,1373 160.9,1373"];
+		"93d3ba29da7f4c8a934981d2eaa1c7b7"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+firewall.png",
+			label="Azure Firewall",
+			pos="376.5,1373",
+			shape=none,
+			width=1.4028];
+		"8ce597f03f7e4dffb96cac5f0266237c" -> "93d3ba29da7f4c8a934981d2eaa1c7b7"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,325.9,1373 272.25,1373 272.25,1373 315.9,1373 315.9,1373"];
+		"01e2a906f0fa4d18a6a2140117a28f19"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+application-gateway.png",
+			label="App Gateway",
+			pos="553.5,1373",
+			shape=none,
+			width=1.4028];
+		"93d3ba29da7f4c8a934981d2eaa1c7b7" -> "01e2a906f0fa4d18a6a2140117a28f19"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,502.77,1373 427.22,1373 427.22,1373 492.77,1373 492.77,1373"];
+		"01e2a906f0fa4d18a6a2140117a28f19" -> a6d338b014944be69668fe7d4defefcf	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,759,1261.7 604.03,1395.8 664.88,1395.8 759,1395.8 759,1395.8 759,1395.8 759,1271.7 759,1271.7"];
+		a6d338b014944be69668fe7d4defefcf -> "2e0d486b8c7643a28426e8f314184f18"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,890.8,1150 809.48,1150 809.48,1150 880.8,1150 880.8,1150"];
+		"3c4ce0ba5fd44871a0e207ee7015344b"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+expressroute-circuits.png",
+			label=ExpressRoute,
+			pos="553.5,1193",
+			shape=none,
+			width=1.4028];
+		"3c4ce0ba5fd44871a0e207ee7015344b" -> a6d338b014944be69668fe7d4defefcf	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,707.7,1215.8 604.17,1215.8 604.17,1215.8 697.7,1215.8 697.7,1215.8"];
+		"39e2976db2ef44258798c0c2e56a89fd"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/onprem/compute/\
+server.png",
+			label="ThinkAgile MX",
+			pos="758.5,1013",
+			shape=none,
+			width=1.4028];
+		"3c4ce0ba5fd44871a0e207ee7015344b" -> "39e2976db2ef44258798c0c2e56a89fd"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,742,1081.5 537,1124.2 537,1115.8 537,1110.2 537,1110.2 537,1110.2 742,1110.2 742,1110.2 742,1110.2 742,1091.5 742,1091.5"];
+		"1d785d7467a74b749b5663ff171e2fc2"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+virtual-network-gateways.png",
+			label="VPN Gateway",
+			pos="553.5,1013",
+			shape=none,
+			width=1.4028];
+		"1d785d7467a74b749b5663ff171e2fc2" -> a6d338b014944be69668fe7d4defefcf	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,776,1124.5 571,1081.8 571,1090.2 571,1095.8 571,1095.8 571,1095.8 776,1095.8 776,1095.8 776,1095.8 776,1114.5 776,1114.5"];
+		"1d785d7467a74b749b5663ff171e2fc2" -> "39e2976db2ef44258798c0c2e56a89fd"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,707.7,1035.8 604.17,1035.8 604.17,1035.8 697.7,1035.8 697.7,1035.8"];
+		"2a1ce3963b62414ca549b9b45792a0af"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+ddos-protection-plans.png",
+			label="DDoS Protection",
+			pos="66.5,1193",
+			shape=none,
+			width=1.4028];
+		"73dd0d765cc74fdc95b4dcc1cb3aeb89"	[height=1.9028,
+			image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/network/\
+dns-zones.png",
+			label="DNS Zone",
+			pos="66.5,1013",
+			shape=none,
+			width=1.4028];
+	}
+	subgraph "cluster_Workload Subscription" {
+		graph [bb="465,295,642,507",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Workload Subscription",
+			labeljust=l,
+			lheight=0.18,
+			lp="540,496.5",
+			lwidth=1.86,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_On-Prem: ThinkAgile MX" {
+			graph [bb="473,303,634,478",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="On-Prem: ThinkAgile MX",
+				labeljust=l,
+				lheight=0.18,
+				lp="553.5,467.5",
+				lwidth=2.01,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"5912070c9c4f4449934b3625d94dcaf6"	[height=1.9028,
+				image="/home/vvishnu/ai-arch-diagram-generator-app/AI diagram agent/backend/.venv/lib/python3.12/site-packages/resources/azure/managementgovernance/\
+arc-machines.png",
+				label="Arc Machine",
+				pos="553.5,380",
+				shape=none,
+				width=1.4028];
+		}
+	}
+	"93d3ba29da7f4c8a934981d2eaa1c7b7" -> "080b20dbbb5e44f6bb74cda643b29e29"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,707.84,466.5 377,1304.5 377,1093.3 377,466.5 377,466.5 377,466.5 697.84,466.5 697.84,466.5"];
+	"01e2a906f0fa4d18a6a2140117a28f19" -> "080b20dbbb5e44f6bb74cda643b29e29"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,707.85,520.5 604.15,1350.2 629.97,1350.2 656,1350.2 656,1350.2 656,1350.2 656,520.5 656,520.5 656,520.5 697.85,520.5 697.85,520.5"];
+	"2e0d486b8c7643a28426e8f314184f18" -> "5912070c9c4f4449934b3625d94dcaf6"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,604.29,380 942,1038.3 942,857.05 942,380 942,380 942,380 614.29,380 614.29,380"];
+	"3c4ce0ba5fd44871a0e207ee7015344b" -> "080b20dbbb5e44f6bb74cda643b29e29"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,707.71,502.5 604.1,1170.2 618.33,1170.2 630,1170.2 630,1170.2 630,1170.2 630,502.5 630,502.5 630,502.5 697.71,502.5 697.71,502.5"];
+	"1d785d7467a74b749b5663ff171e2fc2" -> "080b20dbbb5e44f6bb74cda643b29e29"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,707.95,484.5 554,944.45 554,801.45 554,484.5 554,484.5 554,484.5 697.95,484.5 697.95,484.5"];
+	"5912070c9c4f4449934b3625d94dcaf6" -> "080b20dbbb5e44f6bb74cda643b29e29"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,707.7,417.17 604.17,417.17 604.17,417.17 697.7,417.17 697.7,417.17"];
+	"5912070c9c4f4449934b3625d94dcaf6" -> "67b0c3de735842eda0e22813e6b39d09"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,707.7,335 604.17,335 604.17,335 697.7,335 697.7,335"];
+	"5912070c9c4f4449934b3625d94dcaf6" -> "39e2976db2ef44258798c0c2e56a89fd"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,707.9,990.17 604.29,432.83 640.2,432.83 682,432.83 682,432.83 682,432.83 682,990.17 682,990.17 682,990.17 697.9,990.17 697.9,990.17"];
+}
