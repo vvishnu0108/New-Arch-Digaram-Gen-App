@@ -17,6 +17,7 @@ from services.diagram_classes import get_cached_reference
 from services.knowledge_tools import ARCHITECTURE_TOOLS
 from services.knowledge_tools import get_architecture_framework
 from services.knowledge_tools import get_architecture_capabilities
+from services.knowledge_tools import get_azure_reference_architecture
 
 # ENHANCED OUTPUT FEATURES
 from services.enhanced_output import (
@@ -197,11 +198,14 @@ You have access to the following tools for architecture knowledge. USE THEM:
    
 3. **get_infrastructure_recommendations**: Get components for a layer (networking, security, monitoring, storage, compute)
    - Call when: Adding infrastructure layers to the design
-   
-4. **get_diagram_classes**: Get valid diagram icon imports for a cloud provider
+
+4. **get_azure_reference_architecture**: Get Azure production reference packets (mandatory layers/components)
+   - Call when: User asks for Azure architectures and you need a complete baseline
+
+5. **get_diagram_classes**: Get valid diagram icon imports for a cloud provider
    - Call when: Need to verify import statements are correct
 
-5. **get_architecture_framework**: Determine if architecture framework (e.g., Azure Landing Zone) applies
+6. **get_architecture_framework**: Determine if architecture framework (e.g., Azure Landing Zone) applies
     - Call when: Starting a new architecture design
 
 
@@ -828,6 +832,16 @@ def generate_diagram_code_with_tools(
 
     # Phase 2: Service Capability Resolution
     capability_context = ""
+    azure_reference_context = ""
+
+    if "azure" in user_request.lower():
+        try:
+            azure_reference_context = get_azure_reference_architecture.invoke({
+                "workload_type": "microservices"
+            })
+            logger.info("Phase 2a: Azure reference architecture packet loaded")
+        except Exception as e:
+            logger.warning(f"Phase 2a: Azure reference packet loading failed: {e}")
 
     try:
         # Ask LLM what services it intends to use
@@ -881,6 +895,17 @@ def generate_diagram_code_with_tools(
 
             if capability_context:
                 system_prompt += "\n\n" + capability_context
+
+            if azure_reference_context and "Error:" not in azure_reference_context:
+                system_prompt += f"""
+
+                AZURE PRODUCTION REFERENCE PACKET (HIGH PRIORITY)
+
+                Use this as a completeness checklist for Azure designs:
+                {azure_reference_context}
+
+                If the user asks for a simplified diagram, keep layer intent but reduce node count.
+                """
 
             tool_messages = [
                 SystemMessage(content=system_prompt),
