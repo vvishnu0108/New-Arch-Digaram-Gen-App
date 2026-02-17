@@ -17,6 +17,15 @@
         "private_endpoint"
       ]
     },
+    "azure_sql_database": {
+      "networking_model": "paas_external",
+      "allowed_access": [
+        "private_endpoint"
+      ],
+      "must_not": [
+        "be_drawn_inside_vnet"
+      ]
+    },
     "cosmos_db": {
       "networking_model": "paas_external",
       "allowed_access": [
@@ -27,23 +36,117 @@
         "be_drawn_inside_vnet"
       ]
     },
-    "azure_sql_database": {
+    "azure_kubernetes_service": {
+      "networking_model": "vnet_native",
+      "must_include": [
+        "node_subnet",
+        "private_cluster_or_api_protection",
+        "managed_identity"
+      ],
+      "allowed_connections": [
+        "application_gateway_ingress",
+        "internal_load_balancer",
+        "private_endpoint_to_paas"
+      ]
+    },
+    "azure_api_management": {
+      "networking_model": "external_or_internal_vnet",
+      "must_include": [
+        "policy_enforcement",
+        "backend_authentication"
+      ],
+      "must_not": [
+        "direct_public_access_to_private_backends"
+      ],
+      "allowed_connections": [
+        "front_door",
+        "application_gateway",
+        "private_backend"
+      ]
+    },
+    "azure_front_door": {
+      "networking_model": "global_edge",
+      "must_include": [
+        "waf_or_security_policy",
+        "health_probe"
+      ],
+      "must_not": [
+        "be_placed_inside_vnet"
+      ],
+      "allowed_connections": [
+        "application_gateway",
+        "api_management",
+        "app_service"
+      ]
+    },
+    "azure_firewall": {
+      "networking_model": "hub_vnet",
+      "must_include": [
+        "hub_subnet",
+        "udr_route_control"
+      ],
+      "must_not": [
+        "be_placed_in_workload_spoke_only_when_hub_spoke_is_declared"
+      ]
+    },
+    "application_gateway": {
+      "networking_model": "subnet_scoped",
+      "must_include": [
+        "dedicated_subnet",
+        "waf_for_public_ingress"
+      ],
+      "allowed_connections": [
+        "front_door",
+        "aks_ingress",
+        "app_service"
+      ]
+    },
+    "azure_key_vault": {
       "networking_model": "paas_external",
+      "must_include": [
+        "private_endpoint_or_firewall_rules",
+        "managed_identity_access"
+      ],
+      "must_not": [
+        "hardcoded_secret_flow"
+      ]
+    },
+    "service_bus": {
+      "networking_model": "paas_external",
+      "must_include": [
+        "dead_letter_or_retry_pattern",
+        "queue_or_topic_subscription"
+      ],
       "allowed_access": [
-        "private_endpoint"
+        "private_endpoint",
+        "trusted_service_access"
+      ]
+    },
+    "storage_account": {
+      "networking_model": "paas_external",
+      "must_include": [
+        "private_endpoint_for_private_architectures"
+      ],
+      "must_not": [
+        "anonymous_public_access_for_internal_workloads"
       ]
     }
   },
   "diagram_enforcement": {
     "vnet_integrated_services": {
-      "rule": "Draw outside VNet boundary with dashed integration link"
+      "rule": "Draw outside VNet boundary with dashed integration link unless service is explicitly VNet-native"
+    },
+    "vnet_native_services": {
+      "rule": "Draw inside the correct subnet and subscription boundary"
     },
     "paas_external_services": {
-      "rule": "Draw outside VNet boundary and connect via Private Endpoint"
+      "rule": "Draw outside VNet boundary and connect via Private Endpoint when private architecture is required"
+    },
+    "landing_zone_ingress_path": {
+      "rule": "For Azure Landing Zone diagrams, ingress should follow User -> Front Door -> Firewall -> Application Gateway -> Spoke workload"
     },
     "subscription_representation": {
       "rule": "Subscriptions MUST be represented as cluster boundaries, never as service icons"
     }
-
   }
 }

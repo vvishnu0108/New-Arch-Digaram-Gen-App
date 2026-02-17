@@ -4,6 +4,7 @@ These tools provide on-demand access to architecture knowledge.
 """
 import json
 import os
+from functools import lru_cache
 from typing import Optional
 from langchain_core.tools import tool
 
@@ -11,6 +12,7 @@ from langchain_core.tools import tool
 KNOWLEDGE_DIR = os.path.join(os.path.dirname(__file__), "knowledge")
 
 
+@lru_cache(maxsize=16)
 def _load_json(filename: str) -> dict:
     """Load a JSON file from the knowledge directory."""
     filepath = os.path.join(KNOWLEDGE_DIR, filename)
@@ -21,6 +23,39 @@ def _load_json(filename: str) -> dict:
         return {}
     except json.JSONDecodeError:
         return {}
+
+
+@tool
+def get_azure_reference_architecture(workload_type: str = "microservices") -> str:
+    """
+    Get an Azure-specific production reference architecture packet.
+
+    Use this tool when the user requests Azure architectures and you need
+    a high-confidence baseline list of mandatory layers/components.
+
+    Args:
+        workload_type: Type of workload profile. Current options:
+            - "microservices" (default)
+            - "all" (returns all available Azure reference packets)
+
+    Returns:
+        JSON string containing required layers and components.
+    """
+    data = _load_json("azure_microservices_complete.json")
+
+    if not data:
+        return "Error: Azure reference architecture knowledge base not found."
+
+    workload_type = (workload_type or "microservices").lower().replace("-", "_").replace(" ", "_")
+
+    if workload_type == "all":
+        return json.dumps(data, indent=2)
+
+    if workload_type in {"microservices", "azure_microservices", "azure_microservices_complete"}:
+        packet = data.get("azure_microservices_complete", {})
+        return json.dumps(packet, indent=2)
+
+    return "Unsupported workload_type. Available options: microservices, all"
 
 
 
@@ -325,6 +360,7 @@ def get_architecture_capabilities(services: Optional[list] = None) -> str:
 ARCHITECTURE_TOOLS = [
     get_architecture_framework,
     get_architecture_capabilities,
+    get_azure_reference_architecture,
     get_lenovo_product_info,
     get_architecture_pattern,
     get_infrastructure_recommendations,
